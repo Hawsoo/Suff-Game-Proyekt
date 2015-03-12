@@ -1,8 +1,14 @@
 #include <iostream>
+#include <SDL.h>
+
+#define LOG(x)		std::cout << x << std::endl;
+#define EXIT		system("PAUSE"); return 0;
 
 int main(int argc, char **argv)
 {
-	std::cout << "Hellow Orld" << std::endl;
+	LOG("Hellow Orld");
 	
-	return 0;
+
+
+	EXIT;
 }

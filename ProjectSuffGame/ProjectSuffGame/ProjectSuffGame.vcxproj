@@ -44,9 +44,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Utils\SDL2_mixer-2.0.0\include;$(SolutionDir)..\Utils\SDL2-2.0.3\include;$(SolutionDir)..\Utils\SDL2_image-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Utils\SDL2_mixer-2.0.0\lib\x86;$(SolutionDir)..\Utils\SDL2_image-2.0.0\lib\x86;$(SolutionDir)..\Utils\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;opengl32.lib;glu32.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -56,11 +60,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Utils\SDL2_mixer-2.0.0\include;$(SolutionDir)..\Utils\SDL2-2.0.3\include;$(SolutionDir)..\Utils\SDL2_image-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Utils\SDL2_mixer-2.0.0\lib\x86;$(SolutionDir)..\Utils\SDL2_image-2.0.0\lib\x86;$(SolutionDir)..\Utils\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;opengl32.lib;glu32.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
