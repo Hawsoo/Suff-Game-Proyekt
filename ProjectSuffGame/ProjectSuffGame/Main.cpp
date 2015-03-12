@@ -1,9 +1,12 @@
 #include <iostream>
 #include <SDL.h>
+#include "Debug.h"
 
-#define LOG(x)		std::cout << x << std::endl;
-#define EXIT		system("PAUSE"); return 0;
 
+
+//--------------------------------------------------
+// Main Function
+//--------------------------------------------------
 int main(int argc, char **argv)
 {
 	LOG("Hellow Orld");
