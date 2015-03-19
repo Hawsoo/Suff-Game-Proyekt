@@ -6,6 +6,7 @@
 SDL_Window *Display::window;
 SDL_GLContext Display::context;
 Camera Display::mainCam = Camera(0, 0);
+Room *Display::room;		// TODO: create a beta room, then set it here
 
 int Display::viewHalfW, Display::viewHalfH;
 const int Display::width = 1024;

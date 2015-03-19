@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include "Rect.h"
 
 Player::Player(int x, int y, int inputPort) : Entity(x, y)
 {
@@ -19,5 +19,6 @@ void Player::Update()
 //--------------------------------------------------
 void Player::Render()
 {
-
+	glColor3f(0, 1, 1);
+	Rect(x - 16, y, 32, 64).Render();
 }

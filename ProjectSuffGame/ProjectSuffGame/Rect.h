@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SDL_opengl.h>
+
 struct Rect
 {
 	int x, y, width, height;
@@ -18,5 +20,20 @@ struct Rect
 		this->y = y;
 		this->width = width;
 		this->height = height;
+	}
+
+	//--------------------------------------------------
+	// Draws a solid rectangle.
+	//--------------------------------------------------
+	void Render()
+	{
+		glBegin(GL_QUADS);
+		{
+			glVertex2f(x,			y + height);
+			glVertex2f(x + width,	y + height);
+			glVertex2f(x + width,	y);
+			glVertex2f(x,			y);
+		}
+		glEnd();
 	}
 };

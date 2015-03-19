@@ -21,7 +21,7 @@ void Room::Update()
 //--------------------------------------------------
 void Room::Render()
 {
-	for each (Entity* obj in entities)
+	for each (Entity *obj in entities)
 	{
 		obj->Render();
 	}

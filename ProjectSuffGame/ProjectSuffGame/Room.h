@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Entity.h"
+#include "Ground.h"
 
 class Room
 {

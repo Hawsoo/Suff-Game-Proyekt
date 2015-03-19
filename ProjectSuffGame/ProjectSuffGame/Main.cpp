@@ -74,8 +74,10 @@ int main(int argc, char **argv)
 			Vector2f pos = Display::mainCam.GetPosition();
 			glTranslatef(-pos.x, -pos.y, 0);
 
+			// Draw current room
+
 			// BETA: red rect. for demonstrationing
-			glColor3f(1, 0, 0);
+			/*glColor3f(1, 0, 0);
 			glBegin(GL_QUADS);
 			{
 				glVertex2f(0, Display::height / 2);
@@ -83,7 +85,7 @@ int main(int argc, char **argv)
 				glVertex2f(Display::width / 2, 0);
 				glVertex2f(0, 0);
 			}
-			glEnd();
+			glEnd();*/
 		}
 		glPopMatrix();
 
