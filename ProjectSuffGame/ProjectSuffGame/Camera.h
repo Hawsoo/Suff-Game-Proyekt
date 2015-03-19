@@ -9,4 +9,3 @@ public:
 	Camera(int, int);
 	Vector2f GetPosition();
 };
-

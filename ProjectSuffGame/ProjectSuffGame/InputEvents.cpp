@@ -2,6 +2,8 @@
 #include "Debug.h"
 #include "Display.h"
 
+std::vector<VController*> InputEvents::inputs;
+
 bool InputEvents::running = true;
 SDL_Event InputEvents::e;
 
@@ -49,10 +51,8 @@ void InputEvents::Process()
 		}
 
 		// Input devices' Events
-		/*int size = InputHandler::VirtualControllers.size();
+		int size = inputs.size();
 		for (int i = 0; i < size; i++)
-		{
-			InputHandler::VirtualControllers[i].ProcessInput(event);
-		}*/
+			{ inputs[i]->ProcessEvent(e); }
 	}
 }

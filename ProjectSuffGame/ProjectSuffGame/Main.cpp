@@ -4,6 +4,7 @@
 #include "Debug.h"
 #include "Display.h"
 #include "InputEvents.h"
+#include "VC_Keyboard.h"
 
 //--------------------------------------------------
 // Creates the Window for the application.
@@ -46,6 +47,9 @@ int main(int argc, char **argv)
 	
 	// Setup OpenGL
 	SetupWindow();
+
+	// BETA!!!
+	InputEvents::inputs.push_back(new VC_Keyboard());
 
 	// Game Loop
 	while (InputEvents::running)
