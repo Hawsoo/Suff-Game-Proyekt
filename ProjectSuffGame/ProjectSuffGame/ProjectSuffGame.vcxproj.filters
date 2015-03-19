@@ -13,78 +13,111 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Rooms">
+      <UniqueIdentifier>{33ff2fd0-2f8a-48d4-899b-b8276f649019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{eb8d93c3-14fc-4eeb-9b82-b9e4f105d788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{02dc2fb6-c796-466f-80dd-2c4ba2dda964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entity">
+      <UniqueIdentifier>{d973cfe5-7f73-4162-bf8d-12b76610a74e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entity\Ground">
+      <UniqueIdentifier>{3b0f13e4-814a-4a67-9a65-eaa4d7d55a76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{ac9c0f75-5bba-4f03-8460-931c2bb51b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{afee904b-034a-4cde-904a-31977e86bbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entity">
+      <UniqueIdentifier>{5771bc66-cb20-420b-9d96-e7141a186972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entity\Ground">
+      <UniqueIdentifier>{ca1572e2-5b8e-49ed-9224-421332ad22ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{ed0fb3ac-9b6c-4ad8-bf46-01006a2bb094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rooms">
+      <UniqueIdentifier>{26a1821e-bb3a-4223-93cf-b5d437830e62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files\Entity\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="VC_Keyboard.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputEvents.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="BETAworld.cpp">
+      <Filter>Source Files\Rooms</Filter>
+    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InputEvents.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VC_Keyboard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rooms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputEvents.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2f.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VC_Keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource1.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BETAworld.h">
+      <Filter>Header Files\Rooms</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ground.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Rooms</Filter>
     </ClInclude>
     <ClInclude Include="Rect.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Header Files\Entity\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2f.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEvents.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="VC_Keyboard.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="VController.h">
+      <Filter>Header Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

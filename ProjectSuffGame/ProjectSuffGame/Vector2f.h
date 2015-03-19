@@ -15,4 +15,11 @@ struct Vector2f
 		this->x = x;
 		this->y = y;
 	}
+
+	Vector2f& operator/(const float& div)
+	{
+		this->x /= div;
+		this->y /= div;
+		return *this;
+	}
 };

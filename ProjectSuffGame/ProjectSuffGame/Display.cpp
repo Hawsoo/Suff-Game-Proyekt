@@ -1,12 +1,13 @@
 #include "Display.h"
 #include <SDL.h>
 #include <SDL_opengl.h>
+#include "BETAworld.h"
 #include "Debug.h"
 
 SDL_Window *Display::window;
 SDL_GLContext Display::context;
 Camera Display::mainCam = Camera(0, 0);
-Room *Display::room;		// TODO: create a beta room, then set it here
+Room *Display::room = new BETAworld();		// TODO: create a beta room, then set it here
 
 int Display::viewHalfW, Display::viewHalfH;
 const int Display::width = 1024;

@@ -21,6 +21,7 @@ void SetupWindow()
 		SDL_WINDOW_HIDDEN |
 		SDL_WINDOW_RESIZABLE |
 		SDL_WINDOW_OPENGL;
+
 	Display::window =
 		SDL_CreateWindow("Project Alchemy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, flags);
 	Display::context = SDL_GL_CreateContext(Display::window);
@@ -64,9 +65,10 @@ int main(int argc, char **argv)
 		InputEvents::Process();
 
 		// Update
+		Display::room->Update();
 		
 		// Render
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
 
 		glPushMatrix();
 		{
@@ -75,17 +77,7 @@ int main(int argc, char **argv)
 			glTranslatef(-pos.x, -pos.y, 0);
 
 			// Draw current room
-
-			// BETA: red rect. for demonstrationing
-			/*glColor3f(1, 0, 0);
-			glBegin(GL_QUADS);
-			{
-				glVertex2f(0, Display::height / 2);
-				glVertex2f(Display::width / 2, Display::height / 2);
-				glVertex2f(Display::width / 2, 0);
-				glVertex2f(0, 0);
-			}
-			glEnd();*/
+			Display::room->Render();
 		}
 		glPopMatrix();
 

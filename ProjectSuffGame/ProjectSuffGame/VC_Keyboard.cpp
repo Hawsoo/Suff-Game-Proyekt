@@ -62,12 +62,21 @@ void VC_Keyboard::InterpretKeycode(SDL_Keycode code, bool down)
 	if (!down) mult = 0;
 
 	// Interpret key event
-	if (code == keyLeft) joyPos.x = -mult;
-	else if (code == keyRight) joyPos.x = mult;
-	else if (code == keyUp) joyPos.y = -mult;
-	else if (code == keyDown) joyPos.y = mult;
+	if (code == keyLeft) arrowLeft = down;
+	else if (code == keyRight) arrowRight = down;
+	else if (code == keyUp) arrowUp = down;
+	else if (code == keyDown) arrowDown = down;
 
 	else if (code == keyStart) start = down;
 	else if (code == keyAttack) attack = down;
 	else if (code == keyAction) action = down;
+	
+	// Update joystick position
+	if (arrowLeft && !arrowRight) joyPos.x = -1;
+	else if (arrowRight && !arrowLeft) joyPos.x = 1;
+	else joyPos.x = 0;
+
+	if (arrowUp && !arrowDown) joyPos.y = 1;
+	else if (arrowDown && !arrowUp) joyPos.y = -1;
+	else joyPos.y = 0;
 }

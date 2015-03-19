@@ -10,7 +10,7 @@ Room::Room()
 //--------------------------------------------------
 void Room::Update()
 {
-	for each (Entity* obj in entities)
+	for each (Entity *obj in entities)
 	{
 		obj->Update();
 	}
