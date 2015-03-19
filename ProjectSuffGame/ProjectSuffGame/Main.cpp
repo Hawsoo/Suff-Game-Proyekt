@@ -17,7 +17,12 @@ void SetupWindow()
 	// Setup Window and Context
 	LOG("::Initializing SDL2 and OpenGL...");
 
-	Display::window = SDL_CreateWindow("Project Alchemy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, SDL_WINDOW_HIDDEN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
+	Uint32 flags =
+		SDL_WINDOW_HIDDEN |
+		SDL_WINDOW_RESIZABLE |
+		SDL_WINDOW_OPENGL;
+	Display::window =
+		SDL_CreateWindow("Project Alchemy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, flags);
 	Display::context = SDL_GL_CreateContext(Display::window);
 
 	// Setup initial OpenGL
@@ -48,7 +53,7 @@ int main(int argc, char **argv)
 	// Setup OpenGL
 	SetupWindow();
 
-	// BETA!!!
+	// Create Default Input
 	InputEvents::inputs.push_back(new VC_Keyboard());
 
 	// Game Loop
