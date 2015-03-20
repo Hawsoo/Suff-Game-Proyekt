@@ -1,27 +1,25 @@
 #include "VC_Controller.h"
+#include "Debug.h"
 
-VC_Controller::VC_Controller(SDL_Joystick *joystick)
+VC_Controller::VC_Controller(SDL_GameController *controller)
 {
-	this->joystick = joystick;
+	this->controller = controller;
 }
 
+//--------------------------------------------------
+// Processes the joystick events.
+//--------------------------------------------------
 void VC_Controller::ProcessEvent(SDL_Event e)
 {
 	switch (e.type)
 	{
 	case SDL_JOYAXISMOTION:
-	{
 		break;
-	}
-
-	case SDL_JOYHATMOTION:
-	{
-		break;
-	}
 
 	case SDL_JOYBUTTONDOWN:
-	{
 		break;
-	}
+
+	case SDL_JOYBUTTONUP:
+		break;
 	}
 }

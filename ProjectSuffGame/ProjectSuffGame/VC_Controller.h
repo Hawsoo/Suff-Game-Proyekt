@@ -1,15 +1,16 @@
 #pragma once
 
 #include "VController.h"
+#include <SDL_gamecontroller.h>
 
 class VC_Controller : public VController
 {
 public:
-	VC_Controller(SDL_Joystick*);
+	VC_Controller(SDL_GameController*);
 	void SetController();
 	void ProcessEvent(SDL_Event);
 private:
-	SDL_Joystick *joystick;
+	SDL_GameController *controller;
 
 	// Bindings
 	SDL_GameControllerAxis

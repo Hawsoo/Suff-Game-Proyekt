@@ -5,6 +5,7 @@
 #include "Display.h"
 #include "InputEvents.h"
 #include "VC_Keyboard.h"
+#include "VC_Controller.h"
 #include "Timer.h"
 
 //--------------------------------------------------
@@ -62,13 +63,15 @@ int main(int argc, char **argv)
 	InputEvents::inputs.push_back(new VC_Keyboard());
 	Timer fpsTimer;
 
-	printf("\n%i joysticks were found.\n", SDL_NumJoysticks());
-	printf("The names of the joysticks are:\n");
-
+	// BETA get first gamecontroller
+	SDL_GameController *controller = nullptr;
 	for (int i = 0; i < SDL_NumJoysticks(); i++)
 	{
-		printf("    %s\n", SDL_JoystickName(SDL_JoystickOpen(i)));
+		if (SDL_IsGameController(i))
+			controller = SDL_GameControllerOpen(i);
 	}
+	// BETA connect it
+	InputEvents::inputs.push_back(new VC_Controller(controller));
 
 	// Game Loop
 	while (InputEvents::running)

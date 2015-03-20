@@ -21,32 +21,24 @@ void InputEvents::Process()
 			switch (e.window.event)
 			{
 			case SDL_WINDOWEVENT_CLOSE:
-			{
 				// Close Program
 				running = false;
 				break;
-			}
 
 			case SDL_WINDOWEVENT_FOCUS_GAINED:
-			{
-				// TODO add stuff
+				// TODO make focus gain flag
 				LOG("::Focus Gained");
 				break;
-			}
 
 			case SDL_WINDOWEVENT_FOCUS_LOST:
-			{
-				// TODO add stuff
+				// TODO make focus loss flag
 				LOG("::Focus Lost");
 				break;
-			}
 
 			case SDL_WINDOWEVENT_SIZE_CHANGED:
-			{
 				// Change the Context Size
 				Display::SetupGLDisplay();
 				break;
-			}
 			}
 		}
 

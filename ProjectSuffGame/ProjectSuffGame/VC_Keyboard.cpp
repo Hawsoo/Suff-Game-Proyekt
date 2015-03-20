@@ -39,16 +39,12 @@ void VC_Keyboard::ProcessEvent(SDL_Event e)
 	switch (e.type)
 	{
 	case SDL_KEYDOWN:
-	{
 		InterpretKeycode(e.key.keysym.sym, true);
 		break;
-	}
 
 	case SDL_KEYUP:
-	{
 		InterpretKeycode(e.key.keysym.sym, false);
 		break;
-	}
 	}
 }
 
