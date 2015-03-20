@@ -5,10 +5,12 @@
 class VC_Controller : public VController
 {
 public:
-	VC_Controller();
+	VC_Controller(SDL_Joystick*);
 	void SetController();
-	void ProcessEvent(SDL_Keycode);
+	void ProcessEvent(SDL_Event);
 private:
+	SDL_Joystick *joystick;
+
 	// Bindings
 	SDL_GameControllerAxis
 		axisHorizontal, axisVertical;
