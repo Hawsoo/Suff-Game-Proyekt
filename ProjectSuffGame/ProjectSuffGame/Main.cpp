@@ -60,13 +60,21 @@ int main(int argc, char **argv)
 
 	// Setup game loop
 	InputEvents::inputs.push_back(new VC_Keyboard());
-	Timer fpstimer;
+	Timer fpsTimer;
+
+	printf("\n%i joysticks were found.\n", SDL_NumJoysticks());
+	printf("The names of the joysticks are:\n");
+
+	for (int i = 0; i < SDL_NumJoysticks(); i++)
+	{
+		printf("    %s\n", SDL_JoystickName(SDL_JoystickOpen(i)));
+	}
 
 	// Game Loop
 	while (InputEvents::running)
 	{
 		// Start timer
-		fpstimer.Start();
+		fpsTimer.Start();
 
 		// Get input
 		SDL_PumpEvents();
@@ -92,11 +100,11 @@ int main(int argc, char **argv)
 		SDL_GL_SwapWindow(Display::window);
 
 		// Cap frame rate
-		int fpstimertime = fpstimer.GetTime();
-		if (fpstimertime < 1000 / Display::fps)
+		int fpsTimertime = fpsTimer.GetTime();
+		if (fpsTimertime < 1000 / Display::fps)
 		{
 			// Wait until next frame should start
-			SDL_Delay((1000 / Display::fps) - fpstimertime);
+			SDL_Delay((1000 / Display::fps) - fpsTimertime);
 		}
 	}
 

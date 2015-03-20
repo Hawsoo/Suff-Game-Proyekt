@@ -55,7 +55,7 @@ void Player::Update()
 	x += hspeed;
 	y += vspeed;
 
-	LOG(hspeed);
+	//LOG(hspeed);
 }
 
 //--------------------------------------------------

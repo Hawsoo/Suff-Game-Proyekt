@@ -19,7 +19,8 @@ private:
 		arrowUp = false, arrowDown = false;
 
 	// Keybindings
-	SDL_Keycode keyLeft, keyRight, keyUp, keyDown,
+	SDL_Keycode
+		keyLeft, keyRight, keyUp, keyDown,
 		keyStart, keyAttack, keyAction;
 };
 
