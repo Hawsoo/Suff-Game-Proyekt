@@ -5,6 +5,7 @@
 #include "Display.h"
 #include "InputEvents.h"
 #include "VC_Keyboard.h"
+#include "Timer.h"
 
 //--------------------------------------------------
 // Creates the Window for the application.
@@ -12,10 +13,11 @@
 void SetupWindow()
 {
 	// Init
+	LOG("::Initializing SDL2 and OpenGL...");
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	// Setup Window and Context
-	LOG("::Initializing SDL2 and OpenGL...");
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	Uint32 flags =
 		SDL_WINDOW_HIDDEN |
@@ -39,6 +41,8 @@ void SetupWindow()
 //--------------------------------------------------
 void Unload()
 {
+	delete Display::room;
+
 	SDL_DestroyWindow(Display::window);
 	SDL_GL_DeleteContext(Display::context);
 	SDL_Quit();
@@ -54,12 +58,16 @@ int main(int argc, char **argv)
 	// Setup OpenGL
 	SetupWindow();
 
-	// Create Default Input
+	// Setup game loop
 	InputEvents::inputs.push_back(new VC_Keyboard());
+	Timer fpstimer;
 
 	// Game Loop
 	while (InputEvents::running)
 	{
+		// Start timer
+		fpstimer.Start();
+
 		// Get input
 		SDL_PumpEvents();
 		InputEvents::Process();
@@ -68,7 +76,7 @@ int main(int argc, char **argv)
 		Display::room->Update();
 		
 		// Render
-		glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glPushMatrix();
 		{
@@ -82,6 +90,14 @@ int main(int argc, char **argv)
 		glPopMatrix();
 
 		SDL_GL_SwapWindow(Display::window);
+
+		// Cap frame rate
+		int fpstimertime = fpstimer.GetTime();
+		if (fpstimertime < 1000 / Display::fps)
+		{
+			// Wait until next frame should start
+			SDL_Delay((1000 / Display::fps) - fpstimertime);
+		}
 	}
 
 	// Clean up

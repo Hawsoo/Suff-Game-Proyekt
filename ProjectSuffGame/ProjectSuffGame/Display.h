@@ -8,6 +8,7 @@
 class Display
 {
 public:
+	static float fps;
 	static SDL_Window *window;
 	static SDL_GLContext context;
 	static Camera mainCam;

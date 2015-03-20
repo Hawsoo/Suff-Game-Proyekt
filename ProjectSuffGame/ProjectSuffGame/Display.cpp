@@ -4,6 +4,7 @@
 #include "BETAworld.h"
 #include "Debug.h"
 
+float Display::fps = 60;
 SDL_Window *Display::window;
 SDL_GLContext Display::context;
 Camera Display::mainCam = Camera(0, 0);
