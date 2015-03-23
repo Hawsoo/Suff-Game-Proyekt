@@ -54,7 +54,6 @@ void VC_Controller::ProcessEvent(SDL_Event e)
 		// Check which axis
 		if (e.caxis.axis == axisHorizontal)
 		{
-			LOG("\tHorizontal axis: " << e.caxis.value);
 			// Update value
 			if (e.caxis.value < -deadzone)
 				joyPos.x = -1;
