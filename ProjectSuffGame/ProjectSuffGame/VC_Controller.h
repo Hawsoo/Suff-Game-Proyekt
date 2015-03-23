@@ -6,10 +6,17 @@
 class VC_Controller : public VController
 {
 public:
+	static int deadzone;
+
 	VC_Controller(SDL_GameController*);
-	void SetController();
+	void SetBindings(
+		SDL_GameControllerAxis, SDL_GameControllerAxis,
+		SDL_GameControllerButton, SDL_GameControllerButton, SDL_GameControllerButton, SDL_GameControllerButton,
+		SDL_GameControllerButton, SDL_GameControllerButton, SDL_GameControllerButton);
 	void ProcessEvent(SDL_Event);
 private:
+	void InterpretInput(Uint8, bool);
+
 	SDL_GameController *controller;
 
 	// Bindings

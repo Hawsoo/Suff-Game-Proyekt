@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	SetupWindow();
 
 	// Setup game loop
-	InputEvents::inputs.push_back(new VC_Keyboard());
+	//InputEvents::inputs.push_back(new VC_Keyboard());
 	Timer fpsTimer;
 
 	// BETA get first gamecontroller
@@ -68,7 +68,11 @@ int main(int argc, char **argv)
 	for (int i = 0; i < SDL_NumJoysticks(); i++)
 	{
 		if (SDL_IsGameController(i))
+		{
 			controller = SDL_GameControllerOpen(i);
+			SDL_GameControllerName(controller);
+			break;
+		}
 	}
 	// BETA connect it
 	InputEvents::inputs.push_back(new VC_Controller(controller));

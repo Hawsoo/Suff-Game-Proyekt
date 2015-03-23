@@ -54,9 +54,6 @@ void VC_Keyboard::ProcessEvent(SDL_Event e)
 //--------------------------------------------------
 void VC_Keyboard::InterpretKeycode(SDL_Keycode code, bool down)
 {
-	int mult = 1;
-	if (!down) mult = 0;
-
 	// Interpret key event
 	if (code == keyLeft) arrowLeft = down;
 	else if (code == keyRight) arrowRight = down;
