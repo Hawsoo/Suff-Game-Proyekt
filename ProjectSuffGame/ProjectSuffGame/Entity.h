@@ -16,5 +16,5 @@ public:
 
 	void Move(double, double, int, int, int, int);
 private:
-	Rect* IsCollidingAmong(int, int, int, int);
+	Rect IsCollidingAmong(int, int, int, int);
 };

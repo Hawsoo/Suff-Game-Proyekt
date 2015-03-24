@@ -3,12 +3,13 @@
 #include "Entity.h"
 #include "Rect.h"
 
-class Ground : public Entity
+class Ground
 {
 public:
 	Rect bounds;
 
 	Ground(Rect);
+	virtual void Render() = 0;
 
 	//--------------------------------------------------
 	// Tests collision.
