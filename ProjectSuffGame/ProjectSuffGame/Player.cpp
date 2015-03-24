@@ -4,7 +4,7 @@
 #include "Debug.h"
 #include <algorithm>
 
-Player::Player(int x, int y, int inputPort) : Entity(x, y)
+Player::Player(int x, int y, int inputPort, std::vector<Ground*> *grounds) : Entity(x, y, grounds)
 {
 	this->inputPort = inputPort;
 }
@@ -52,8 +52,7 @@ void Player::Update()
 	}
 
 	// Apply movement
-	x += hspeed;
-	y += vspeed;
+	Move(hspeed, vspeed, -16, 0, 32, 64);
 
 	//LOG(hspeed);
 }

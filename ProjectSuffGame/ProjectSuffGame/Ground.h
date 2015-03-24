@@ -9,5 +9,13 @@ public:
 	Rect bounds;
 
 	Ground(Rect);
+
+	//--------------------------------------------------
+	// Tests collision.
+	//--------------------------------------------------
+	bool IsColliding(Rect other)
+	{
+		return bounds.IsColliding(other);
+	}
 };
 

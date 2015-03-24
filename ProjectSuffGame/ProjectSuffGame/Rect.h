@@ -23,17 +23,33 @@ struct Rect
 	}
 
 	//--------------------------------------------------
-	// Draws a solid rectangle.
+	// Draws a wireframe rectangle.
 	//--------------------------------------------------
 	void Render()
 	{
+		// Set to wireframe
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+		// Draw quad
 		glBegin(GL_QUADS);
 		{
-			glVertex2f(x,			y + height);
-			glVertex2f(x + width,	y + height);
-			glVertex2f(x + width,	y);
-			glVertex2f(x,			y);
+			glVertex2f(x, y + height);
+			glVertex2f(x + width, y + height);
+			glVertex2f(x + width, y);
+			glVertex2f(x, y);
 		}
 		glEnd();
+
+		// Revert to solid
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+
+	//--------------------------------------------------
+	// Checks collision between two rectangles.
+	//--------------------------------------------------
+	bool IsColliding(Rect other)
+	{
+		return (x < other.x + other.width && x + width > other.x &&
+			y < other.y + other.height && y + height > other.y);
 	}
 };

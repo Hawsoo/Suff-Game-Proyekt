@@ -7,13 +7,14 @@ class Entity
 {
 public:
 	double x, y;
+	std::vector<Ground*> *grounds;
 	
-	Entity(int, int);
+	Entity(int, int, std::vector<Ground*>*);
 
 	virtual void Update() = 0;
 	virtual void Render() = 0;
-	void Move(double, double, int, int, int, int, std::vector<Ground*>&);
 
+	void Move(double, double, int, int, int, int);
 private:
-	bool IsCollidingAmong(int, int, int, int, std::vector<Ground*>&);
+	Rect* IsCollidingAmong(int, int, int, int);
 };
