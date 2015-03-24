@@ -32,7 +32,7 @@ void SetupWindow()
 	// Setup initial OpenGL
 	Display::SetupGLDisplay();
 
-	SDL_GL_SetSwapInterval(1);
+	//SDL_GL_SetSwapInterval(1);
 	SDL_ShowCursor(0);
 	SDL_ShowWindow(Display::window);
 }
