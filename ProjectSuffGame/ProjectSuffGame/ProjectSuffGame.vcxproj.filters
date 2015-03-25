@@ -81,6 +81,9 @@
     <ClCompile Include="VC_Controller.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Gnd_Regular.cpp">
+      <Filter>Source Files\Entity\Ground</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="VC_Controller.h">
       <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Gnd_Regular.h">
+      <Filter>Header Files\Entity\Ground</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,13 +3,13 @@
 #include "Entity.h"
 #include "Rect.h"
 
-class Ground : public Entity
+class Ground
 {
 public:
 	Rect bounds;
 
 	Ground(Rect);
-	void Update() {}
+	virtual void Render() = 0;
 
 	//--------------------------------------------------
 	// Tests collision.
@@ -18,5 +18,7 @@ public:
 	{
 		return bounds.IsColliding(other);
 	}
+
+
 };
 
