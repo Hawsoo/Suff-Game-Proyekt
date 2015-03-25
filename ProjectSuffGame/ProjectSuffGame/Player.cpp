@@ -4,7 +4,7 @@
 #include "Debug.h"
 #include <algorithm>
 
-Player::Player(int x, int y, int inputPort, std::vector<Ground*> *grounds) : Entity(x, y, grounds)
+Player::Player(int x, int y, int inputPort, Room *room) : Entity(x, y, room)
 {
 	this->inputPort = inputPort;
 }

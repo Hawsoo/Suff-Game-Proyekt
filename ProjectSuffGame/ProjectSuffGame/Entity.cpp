@@ -1,10 +1,10 @@
 #include "Entity.h"
 
-Entity::Entity(int x, int y, std::vector<Ground*> *grounds)
+Entity::Entity(int x, int y, Room *room)
 {
 	this->x = x;
 	this->y = y;
-	this->grounds = grounds;
+	this->room = room;
 }
 
 //--------------------------------------------------
@@ -13,48 +13,45 @@ Entity::Entity(int x, int y, std::vector<Ground*> *grounds)
 void Entity::Move(double hspeed, double vspeed, int xoff, int yoff, int width, int height)
 {
 	int dir;
-	Rect collideBounds;
+	Collision collision(false, Rect());
 
 	// Move Hspeed
 	x += hspeed;
 	dir = std::copysign(1.0, hspeed);
 	// TODO figger out the reason why this code doesn't work
 	// If moving back is required
-	//if ((collideBounds = IsCollidingAmong(xoff, yoff, width, height)) != nullptr)
-	//{
-	//	// Scoot to right
-	//	if (dir < 0)
-	//	{
-	//		x = collideBounds->x + collideBounds->width + xoff;
-	//	}
-	//	// Scoot to left
-	//	else
-	//	{
-	//		x = collideBounds->x - width + xoff;
-	//	}
-	//}
+	if ((collision = IsCollidingAmong(xoff, yoff, width, height)).collided)
+	{
+		// Scoot to right
+		if (dir < 0)
+		{
+			x = collision.bounds.x + collision.bounds.width + xoff;
+		}
+		// Scoot to left
+		else
+		{
+			x = collision.bounds.x - width + xoff;
+		}
+	}
 
-	//// Move Vspeed
-	//y += vspeed;
-	//dir = std::copysign(1.0, vspeed);
+	// Move Vspeed
+	y += vspeed;
+	dir = std::copysign(1.0, vspeed);
 
-	//// If moving back is required
-	//if ((collideBounds = IsCollidingAmong(xoff, yoff, width, height)) != nullptr)
-	//{
-	//	// Scoot up
-	//	if (dir < 0)
-	//	{
-	//		y = collideBounds->y + collideBounds->height + yoff;
-	//	}
-	//	// Scoot down
-	//	else
-	//	{
-	//		y = collideBounds->y - height + yoff;
-	//	}
-	//}
-
-	//// Clean up
-	//delete collideBounds;
+	// If moving back is required
+	if ((collision = IsCollidingAmong(xoff, yoff, width, height)).collided)
+	{
+		// Scoot up
+		if (dir < 0)
+		{
+			y = collision.bounds.y + collision.bounds.height + yoff;
+		}
+		// Scoot down
+		else
+		{
+			y = collision.bounds.y - height + yoff;
+		}
+	}
 }
 
 //--------------------------------------------------
@@ -63,15 +60,16 @@ void Entity::Move(double hspeed, double vspeed, int xoff, int yoff, int width, i
 // 
 // xoff and yoff are positive numbers.
 //--------------------------------------------------
-Rect Entity::IsCollidingAmong(int xoff, int yoff, int width, int height)
+Collision Entity::IsCollidingAmong(int xoff, int yoff, int width, int height)
 {
 	// Test for first collision
-	for each (Ground *gnd in *grounds)
+	for each (Ground *gnd in room->grounds)
 	{
 		if (gnd->IsColliding(Rect(x - xoff, y - yoff, width, height)))
-			return (gnd->bounds);
+			// Return a collision
+			return Collision(true, gnd->bounds);
 	}
 
-	// Return nothing FIXME
-	//return nullptr;
+	// Return false flag
+	return Collision(false, Rect());
 }
