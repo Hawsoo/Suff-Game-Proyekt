@@ -32,7 +32,7 @@ void SetupWindow()
 	// Setup initial OpenGL
 	Display::SetupGLDisplay();
 
-	//SDL_GL_SetSwapInterval(1);
+	SDL_GL_SetSwapInterval(1);
 	SDL_ShowCursor(0);
 	SDL_ShowWindow(Display::window);
 }
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	SetupWindow();
 
 	// Setup game loop
-	InputEvents::inputs.push_back(new VC_Keyboard());
+	InputEvents::inputs.push_back(new VC_Keyboard());		// Keyboard input
 	Timer fpsTimer;
 
 	// BETA get first gamecontroller

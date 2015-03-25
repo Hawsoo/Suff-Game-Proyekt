@@ -33,10 +33,10 @@ struct Rect
 		// Draw quad
 		glBegin(GL_QUADS);
 		{
-			glVertex2f(x, y + height);
-			glVertex2f(x + width, y + height);
-			glVertex2f(x + width, y);
-			glVertex2f(x, y);
+			glVertex2f(x,			y + height);
+			glVertex2f(x + width,	y + height);
+			glVertex2f(x + width,	y);
+			glVertex2f(x,			y);
 		}
 		glEnd();
 

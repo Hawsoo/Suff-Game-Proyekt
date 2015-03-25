@@ -44,7 +44,7 @@ void VC_Controller::SetBindings(
 }
 
 //--------------------------------------------------
-// Processes the joystick events.
+// Processes the game controller events.
 //--------------------------------------------------
 void VC_Controller::ProcessEvent(SDL_Event e)
 {

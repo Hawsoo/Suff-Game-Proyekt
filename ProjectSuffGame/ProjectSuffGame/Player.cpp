@@ -4,7 +4,7 @@
 #include "Debug.h"
 #include <algorithm>
 
-Player::Player(int x, int y, int inputPort, Room *room) : Entity(x, y, room)
+Player::Player(int x, int y, int inputPort) : Entity(x, y)
 {
 	this->inputPort = inputPort;
 }
@@ -52,7 +52,8 @@ void Player::Update()
 	}
 
 	// Apply movement
-	Move(hspeed, vspeed, -16, 0, 32, 64);
+	x += hspeed;
+	y += vspeed;
 
 	//LOG(hspeed);
 }

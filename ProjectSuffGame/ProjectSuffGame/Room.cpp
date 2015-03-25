@@ -17,15 +17,10 @@ void Room::Update()
 }
 
 //--------------------------------------------------
-// Renders the room's entities and grounds.
+// Renders the room's entities.
 //--------------------------------------------------
 void Room::Render()
 {
-	for each (Ground *gnd in grounds)
-	{
-		gnd->Render();
-	}
-
 	for each (Entity *obj in entities)
 	{
 		obj->Render();
