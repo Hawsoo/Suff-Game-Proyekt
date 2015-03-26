@@ -43,6 +43,7 @@ void SetupWindow()
 void Unload()
 {
 	delete Display::room;
+	Display::room = nullptr;
 
 	SDL_DestroyWindow(Display::window);
 	SDL_GL_DeleteContext(Display::context);
