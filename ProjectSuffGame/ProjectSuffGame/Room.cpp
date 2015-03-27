@@ -25,4 +25,9 @@ void Room::Render()
 	{
 		obj->Render();
 	}
+
+	for each (Ground *gnd in grounds)
+	{
+		gnd->Render();
+	}
 }

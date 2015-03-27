@@ -3,5 +3,5 @@
 
 BETAworld::BETAworld()
 {
-	entities.push_back(new Player(0, 0, 0));
+	entities.push_back(new Player(0, 0, this, 0));
 }

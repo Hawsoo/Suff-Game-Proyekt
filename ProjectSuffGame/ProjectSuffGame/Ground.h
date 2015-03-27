@@ -18,7 +18,5 @@ public:
 	{
 		return bounds.IsColliding(other);
 	}
-
-
 };
 
