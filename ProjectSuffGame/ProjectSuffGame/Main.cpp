@@ -21,6 +21,7 @@ void SetupWindow()
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	Uint32 flags =
+		//SDL_WINDOW_FULLSCREEN_DESKTOP |			// LATER this allows for smooth gameplay
 		SDL_WINDOW_HIDDEN |
 		SDL_WINDOW_RESIZABLE |
 		SDL_WINDOW_OPENGL;
@@ -110,7 +111,7 @@ int main(int argc, char **argv)
 
 		// Cap frame rate
 		int fpsTimertime = fpsTimer.GetTime();
-		if (fpsTimertime < 1000 / Display::fps)
+		if (fpsTimertime < (int)(1000 / Display::fps))
 		{
 			// Wait until next frame should start
 			SDL_Delay((1000 / Display::fps) - fpsTimertime);
