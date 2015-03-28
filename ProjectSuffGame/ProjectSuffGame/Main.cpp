@@ -106,6 +106,7 @@ int main(int argc, char **argv)
 		glPopMatrix();
 
 		SDL_GL_SwapWindow(Display::window);
+		glFinish();
 
 		// Cap frame rate
 		int fpsTimertime = fpsTimer.GetTime();

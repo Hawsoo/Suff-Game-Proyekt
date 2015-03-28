@@ -52,7 +52,7 @@ void Player::Update()
 	}
 
 	// Apply movement
-	Move(Rect(), hspeed, vspeed);
+	Move(16, 0, 32, 64, hspeed, vspeed);
 
 	//LOG(hspeed);
 }

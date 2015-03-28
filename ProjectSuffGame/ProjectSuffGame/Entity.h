@@ -12,7 +12,7 @@ public:
 	
 	Entity(int, int, Room*);
 
-	void Move(Rect bounds, double&, double&);
+	void Move(int, int, int, int, double&, double&);
 
 	virtual void Update() = 0;
 	virtual void Render() = 0;

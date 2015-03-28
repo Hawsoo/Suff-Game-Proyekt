@@ -12,7 +12,7 @@ Entity::Entity(int x, int y, Room *room)
 //--------------------------------------------------
 // Moves the entity while checking for collision.
 //--------------------------------------------------
-void Entity::Move(Rect bounds, double &hspeed, double &vspeed)
+void Entity::Move(int xoff, int yoff, int width, int height, double &hspeed, double &vspeed)
 {
 	// Move Hspeed
 	for (int i = 0; i < std::ceil(std::abs(hspeed)); i++)
@@ -20,15 +20,17 @@ void Entity::Move(Rect bounds, double &hspeed, double &vspeed)
 		int moveAmount = std::copysign(1.0, hspeed);
 
 		// Check if collision occurs ahead
-		if (IsCollidingAll(Rect(bounds.x + moveAmount, bounds.y, bounds.width, bounds.height)))
+		if (IsCollidingAll(Rect(x - xoff + moveAmount, y - yoff, width, height)))
 		{
 			// Stop
 			hspeed = 0;
 			break;
 		}
-
-		// Keep moving if no collision
-		x += moveAmount;
+		else
+		{
+			// Keep moving if no collision
+			x += moveAmount;
+		}
 	}
 
 	// Move Vspeed
@@ -37,15 +39,17 @@ void Entity::Move(Rect bounds, double &hspeed, double &vspeed)
 		int moveAmount = std::copysign(1.0, vspeed);
 
 		// Check if collision occurs ahead
-		if (IsCollidingAll(Rect(bounds.x, bounds.y + moveAmount, bounds.width, bounds.height)))
+		if (IsCollidingAll(Rect(x - xoff, y - yoff + moveAmount, width, height)))
 		{
 			// Stop
 			vspeed = 0;
 			break;
 		}
-
-		// Keep moving if no collision
-		y += moveAmount;
+		else
+		{
+			// Keep moving if no collision
+			y += moveAmount;
+		}
 	}
 }
 
