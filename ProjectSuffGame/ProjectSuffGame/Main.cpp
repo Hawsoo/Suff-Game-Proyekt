@@ -27,7 +27,7 @@ void SetupWindow()
 		SDL_WINDOW_OPENGL;
 
 	Display::window =
-		SDL_CreateWindow("Project Alchemy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, flags);
+		SDL_CreateWindow("Project Suff Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, flags);
 	Display::context = SDL_GL_CreateContext(Display::window);
 
 	// Setup initial OpenGL
