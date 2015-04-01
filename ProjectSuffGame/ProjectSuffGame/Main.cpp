@@ -27,7 +27,7 @@ void SetupWindow()
 		SDL_WINDOW_OPENGL;
 
 	Display::window =
-		SDL_CreateWindow("Project Alchemy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, flags);
+		SDL_CreateWindow("Project Suff Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::width, Display::height, flags);
 	Display::context = SDL_GL_CreateContext(Display::window);
 
 	// Setup initial OpenGL
@@ -63,9 +63,8 @@ int main(int argc, char **argv)
 
 	// Setup game loop
 	InputEvents::inputs.push_back(new VC_Keyboard());		// Keyboard input
-	Timer fpsTimer;
 
-	// BETA get first gamecontroller
+	//// BETA get first gamecontroller
 	//SDL_GameController *controller = nullptr;
 	//for (int i = 0; i < SDL_NumJoysticks(); i++)
 	//{
@@ -80,6 +79,7 @@ int main(int argc, char **argv)
 	//InputEvents::inputs.push_back(new VC_Controller(controller));
 
 	// Game Loop
+	Timer fpsTimer;
 	while (InputEvents::running)
 	{
 		// Start timer
